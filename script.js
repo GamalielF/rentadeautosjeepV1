@@ -1,59 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. LÓGICA DEL MENÚ MÓVIL ---
+  // --- CONFIGURACIÓN ---
+  // ¡IMPORTANTE! Pon aquí el número real de Jeep Rental Ecuador
+  // Si no lo tienes, puedes dejar uno genérico hasta conseguirlo.
+  const PHONE_NUMBER = "593991517141";
+
+  // --- 1. MENÚ MÓVIL ---
   const menuToggle = document.getElementById("mobile-menu");
   const navLinks = document.querySelector(".nav-links");
-  const navItems = document.querySelectorAll(".nav-links li a");
-  const icon = menuToggle.querySelector("i");
 
-  // Función para alternar menú
-  const toggleMenu = () => {
-    navLinks.classList.toggle("active");
-    if (navLinks.classList.contains("active")) {
-      icon.classList.remove("fa-bars");
-      icon.classList.add("fa-times");
-    } else {
-      icon.classList.remove("fa-times");
-      icon.classList.add("fa-bars");
-    }
-  };
-
-  menuToggle.addEventListener("click", toggleMenu);
-
-  // Cerrar menú al hacer click en un enlace
-  navItems.forEach((item) => {
-    item.addEventListener("click", () => {
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = menuToggle.querySelector("i");
       if (navLinks.classList.contains("active")) {
-        toggleMenu();
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+      } else {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
       }
     });
-  });
+  }
 
-  // --- 2. LÓGICA DEL FORMULARIO A WHATSAPP ---
-  const form = document.querySelector(".booking-form");
+  // --- 2. FORMULARIO PRINCIPAL ---
+  const mainForm = document.querySelector(".booking-form");
+  if (mainForm) {
+    mainForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const carType = document.getElementById("car-select").value;
+      const text = `Hola Jeep Rental Ecuador, estoy interesado en una aventura con el modelo: *${carType}*. ¿Tienen disponibilidad y precios?`;
+      window.open(
+        `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`,
+        "_blank"
+      );
+    });
+  }
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Detener recarga normal
-
-    const select = document.getElementById("car-select");
-    const carType = select.value;
-    const phoneNumber = "593999999999"; // ¡CAMBIA ESTO POR TU NÚMERO!
-
-    // Construcción del mensaje
-    // Usamos encodeURIComponent para que los espacios y caracteres especiales funcionen en la URL
-    const text = `Hola AutoRentaUIO, estoy interesado en cotizar el siguiente vehículo: *${carType}*. ¿Tienen disponibilidad?`;
-
-    // Redirección
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
-  });
-
-  // --- 3. PEQUEÑO EFECTO DE SCROLL EN NAVBAR (Opcional) ---
-  window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-      navbar.style.padding = "0.5rem 5%";
-    } else {
-      navbar.style.padding = "1rem 5%";
-    }
+  // --- 3. BOTONES DE COTIZAR EN TARJETAS (NUEVO) ---
+  const quoteButtons = document.querySelectorAll(".whatsapp-trigger");
+  quoteButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const carModel = btn.getAttribute("data-car");
+      const text = `Hola, vi su página web y quiero cotizar el *${carModel}*.`;
+      window.open(
+        `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`,
+        "_blank"
+      );
+    });
   });
 });
