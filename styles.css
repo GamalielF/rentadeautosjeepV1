@@ -41,17 +41,25 @@ html {
     top: 0;
     z-index: 1000;
 }
-
 .logo {
     font-size: 1.6rem;
     font-weight: 900;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    /* PROPIEDADES NUEVAS PARA QUE FUNCIONE COMO LINK */
+    text-decoration: none;
+    /* Quita el subrayado */
+    cursor: pointer;
+    /* Muestra la manito al pasar el mouse */
+    display: inline-block;
+    /* Asegura que respete márgenes */
 }
 
-.logo span {
-    color: var(--accent);
+/* Opcional: Pequeño efecto al pasar el mouse sobre el logo */
+.logo:hover {
+    opacity: 0.9;
 }
 
 .nav-links {
@@ -404,4 +412,69 @@ footer {
     .input-group label {
         margin-top: 10px;
     }
+}
+/* --- ESTILOS DE PÁGINA EXPERIENCIAS --- */
+
+.experience-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--accent);
+    /* Borde amarillo lateral */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.user-profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+}
+
+.user-profile h3 {
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 2px;
+}
+
+.location {
+    font-size: 0.85rem;
+    color: var(--primary);
+    /* Verde militar */
+    font-weight: 600;
+}
+
+.rating {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.testimonio {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.trip-tag {
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--dark);
+    align-self: flex-start;
+    text-transform: uppercase;
 }

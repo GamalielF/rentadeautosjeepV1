@@ -1,24 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- CONFIGURACIÓN ---
-  // ¡IMPORTANTE! Pon aquí el número real de Jeep Rental Ecuador
-  // Si no lo tienes, puedes dejar uno genérico hasta conseguirlo.
-  const PHONE_NUMBER = "593991517141";
+  // Coloca aquí el número real de Jeep Rental Ecuador
+  const PHONE_NUMBER = "593999999999";
 
-  // --- 1. MENÚ MÓVIL ---
+  // --- 1. LÓGICA DEL MENÚ MÓVIL ---
   const menuToggle = document.getElementById("mobile-menu");
   const navLinks = document.querySelector(".nav-links");
+  // Seleccionamos todos los enlaces dentro del menú
+  const navItems = document.querySelectorAll(".nav-links a");
 
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
+  if (menuToggle && navLinks) {
+    // Función para abrir/cerrar menú y cambiar ícono
+    const toggleMenu = () => {
       navLinks.classList.toggle("active");
       const icon = menuToggle.querySelector("i");
+
       if (navLinks.classList.contains("active")) {
+        // Si está abierto, muestra la X
         icon.classList.remove("fa-bars");
         icon.classList.add("fa-times");
       } else {
+        // Si está cerrado, muestra la hamburguesa
         icon.classList.remove("fa-times");
         icon.classList.add("fa-bars");
       }
+    };
+
+    // Evento 1: Clic en el botón hamburguesa
+    menuToggle.addEventListener("click", toggleMenu);
+
+    // Evento 2 (NUEVO): Clic en cualquier enlace del menú
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        // Si el menú está abierto, ciérralo automáticamente
+        if (navLinks.classList.contains("active")) {
+          toggleMenu();
+        }
+      });
     });
   }
 
@@ -36,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 3. BOTONES DE COTIZAR EN TARJETAS (NUEVO) ---
+  // --- 3. BOTONES DE COTIZAR EN TARJETAS ---
   const quoteButtons = document.querySelectorAll(".whatsapp-trigger");
   quoteButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
