@@ -19,8 +19,24 @@
 }
 
 body {
-    background-color: var(--light);
-    color: var(--text-body);
+    /* Ruta a la imagen dentro de la carpeta que creamos */
+    background-image: url('assets/img/fondo-jeep.jpg.png');
+
+    /* Asegura que la imagen cubra todo el fondo sin deformarse */
+    background-size: cover;
+
+    /* Centra la imagen */
+    background-position: center center;
+
+    /* Evita que la imagen se repita como mosaico */
+    background-repeat: no-repeat;
+
+    /* Fija el fondo para que no se mueva al hacer scroll (efecto elegante) */
+    background-attachment: fixed;
+
+    /* Asegura que ocupe toda la altura de la pantalla */
+    min-height: 100vh;
+    margin: 0;
 }
 
 html {
@@ -105,7 +121,7 @@ html {
 .hero {
     height: 95vh;
     /* Imagen de fondo de un Jeep en terreno difícil */
-    background: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+    background-image: url('assets/img/fondo-jeep.jpg.png') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -207,12 +223,27 @@ html {
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--dark);
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
+    color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px 30px;
+    
+        /* --- CAMBIOS PARA CENTRAR --- */
+        display: block;
+        /* Cambiamos de inline-block a block */
+        width: fit-content;
+        /* El ancho se ajusta exactamente al texto */
+        margin: 20px auto;
+        /* 'auto' a los lados centra el elemento horizontalmente */
+        /* --------------------------- */
+    
+        border-radius: 8px;
+        border: 2px solid #f39c12;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        backdrop-filter: blur(5px);
+    
+        /* Opcional: Para asegurar que el texto dentro de la caja también esté centrado */
+        text-align: center;
 }
 
 /* --- FLOTA GRID --- */
@@ -425,6 +456,80 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+/* --- INICIO EFECTO NEÓN MULTICOLOR --- */
+
+/* 1. Configuración base para la transición suave */
+/* Ajusta el selector 'nav ul li a' si es necesario */
+nav ul li a {
+    transition: all 0.4s ease-in-out;
+    /* Opcional: un pequeño padding hace que el resplandor se vea mejor */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+/* 2. Definir colores por elemento (usando nth-child) */
+
+/* Primer elemento: Neón ROSA/MAGENTA */
+nav ul li:nth-child(1) a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff, 0 0 30px #ff00ff, 0 0 60px #ff00ff;
+}
+
+/* Segundo elemento: Neón AZUL CYBER */
+nav ul li:nth-child(2) a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 5px #fff, 0 0 15px #00eaff, 0 0 30px #00eaff, 0 0 60px #00eaff;
+}
+
+/* Tercer elemento: Neón VERDE LIMA */
+nav ul li:nth-child(3) a:hover {
+    color: #39ff14;
+    text-shadow: 0 0 5px #fff, 0 0 15px #39ff14, 0 0 30px #39ff14, 0 0 60px #39ff14;
+}
+
+/* Cuarto elemento: Neón AMARILLO/NARANJA */
+nav ul li:nth-child(4) a:hover {
+    color: #ffea00;
+    text-shadow: 0 0 5px #fff, 0 0 15px #ffea00, 0 0 30px #ffea00, 0 0 60px #ffea00;
+}
+
+/* Quinto elemento (si existe): Neón ROJO */
+nav ul li:nth-child(5) a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 5px #fff, 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 60px #ff0000;
+}
+
+/* --- FIN EFECTO NEÓN MULTICOLOR --- */
+
+/* Definición de la animación de parpadeo/pulsación */
+@keyframes neonPulsar {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #00fff2,
+            0 0 20px #00fff2;
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #00fff2,
+            0 0 40px #00fff2,
+            0 0 80px #00fff2;
+    }
+}
+
+    
+
+/* Aplicar la animación al hover */
+nav ul li a:hover {
+    color: #00fff2;
+    /* Ejecuta la animación 'neonPulsar' infinitamente en 1.5 segundos */
+    animation: neonPulsar 1.5s infinite alternate;
 }
 
 .user-profile {
