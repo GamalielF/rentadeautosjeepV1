@@ -1,68 +1,100 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- CONFIGURACIÓN ---
-  // Coloca aquí el número real de Jeep Rental Ecuador
-  const PHONE_NUMBER = "593999999999";
+  // --- CONFIGURACIÓN GLOBAL ---
+  const CONFIG = {
+    phone: "593968727459", // Número real corregido de tus flyers
+    fbUrl: "https://www.facebook.com/profile.php?id=61560968241236",
+    defaultMsg: "Hola Jeep Rentals, quiero más información.",
+  };
 
-  // --- 1. LÓGICA DEL MENÚ MÓVIL ---
-  const menuToggle = document.getElementById("mobile-menu");
-  const navLinks = document.querySelector(".nav-links");
-  // Seleccionamos todos los enlaces dentro del menú
+  // 1. Configurar Redes Sociales
+  const fbLinks = document.querySelectorAll('a[href*="facebook"]');
+  if (fbLinks) fbLinks.forEach((l) => (l.href = CONFIG.fbUrl));
+
+  const floatBtn = document.querySelector(".whatsapp-float");
+  if (floatBtn)
+    floatBtn.href = `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(
+      CONFIG.defaultMsg
+    )}`;
+
+  // 2. Menú Móvil
+  const menuBtn = document.getElementById("mobile-menu");
+  const nav = document.querySelector(".nav-links");
   const navItems = document.querySelectorAll(".nav-links a");
 
-  if (menuToggle && navLinks) {
-    // Función para abrir/cerrar menú y cambiar ícono
-    const toggleMenu = () => {
-      navLinks.classList.toggle("active");
-      const icon = menuToggle.querySelector("i");
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      const icon = menuBtn.querySelector("i");
+      icon.classList.toggle("fa-bars");
+      icon.classList.toggle("fa-times");
+    });
 
-      if (navLinks.classList.contains("active")) {
-        // Si está abierto, muestra la X
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-      } else {
-        // Si está cerrado, muestra la hamburguesa
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-      }
-    };
-
-    // Evento 1: Clic en el botón hamburguesa
-    menuToggle.addEventListener("click", toggleMenu);
-
-    // Evento 2 (NUEVO): Clic en cualquier enlace del menú
+    // Cerrar menú al hacer clic en un enlace
     navItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        // Si el menú está abierto, ciérralo automáticamente
-        if (navLinks.classList.contains("active")) {
-          toggleMenu();
-        }
-      });
+      item.addEventListener("click", () => nav.classList.remove("active"));
     });
   }
 
-  // --- 2. FORMULARIO PRINCIPAL ---
-  const mainForm = document.querySelector(".booking-form");
-  if (mainForm) {
-    mainForm.addEventListener("submit", (e) => {
+  // 3. Sistema de Filtros (Categorías)
+  const filters = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".car-card");
+
+  filters.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Activar botón visualmente
+      filters.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.getAttribute("data-filter");
+
+      cards.forEach((card) => {
+        // Resetear animación
+        card.classList.remove("show");
+
+        if (
+          category === "all" ||
+          card.getAttribute("data-category") === category
+        ) {
+          card.classList.remove("hide");
+          // Pequeño delay para permitir que el navegador procese el cambio de display
+          setTimeout(() => card.classList.add("show"), 10);
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
+  });
+
+  // 4. Formulario Principal (Hero)
+  const form = document.querySelector(".booking-form");
+  if (form) {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const carType = document.getElementById("car-select").value;
-      const text = `Hola Jeep Rental Ecuador, estoy interesado en una aventura con el modelo: *${carType}*. ¿Tienen disponibilidad y precios?`;
+      const car = document.getElementById("hero-car-select").value;
+      const start = document.getElementById("start-date").value;
+      const end = document.getElementById("end-date").value;
+
+      if (!start || !end) {
+        alert("Por favor selecciona las fechas de tu viaje.");
+        return;
+      }
+
+      const msg = `Hola, quiero cotizar:\n🚙 Vehículo: ${car}\n📅 Desde: ${start}\n📅 Hasta: ${end}`;
       window.open(
-        `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`,
+        `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(msg)}`,
         "_blank"
       );
     });
   }
 
-  // --- 3. BOTONES DE COTIZAR EN TARJETAS ---
-  const quoteButtons = document.querySelectorAll(".whatsapp-trigger");
-  quoteButtons.forEach((btn) => {
+  // 5. Botones Individuales de Reserva
+  document.querySelectorAll(".whatsapp-trigger").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const carModel = btn.getAttribute("data-car");
-      const text = `Hola, vi su página web y quiero cotizar el *${carModel}*.`;
+      const model = btn.getAttribute("data-car");
+      const msg = `Hola, estoy interesado en reservar el: *${model}*. ¿Tienen disponibilidad?`;
       window.open(
-        `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`,
+        `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(msg)}`,
         "_blank"
       );
     });

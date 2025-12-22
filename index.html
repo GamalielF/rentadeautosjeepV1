@@ -4,19 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Jeep Rental Ecuador | Alquiler de 4x4 y Wrangler en Quito</title>
-    <meta name="description"
-        content="Renta de Jeeps 4x4 en Ecuador. Especialistas en Jeep Wrangler, Rubicon y Gladiator. Alquiler de autos todo terreno en Quito para turismo de aventura.">
-    <meta name="keywords"
-        content="jeep rental ecuador, alquiler jeep quito, renta wrangler ecuador, alquiler 4x4 quito, off road ecuador, jeep gladiator renta">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Jeep Rental Ecuador - Vive la Aventura">
-    <meta property="og:description" content="La flota de 4x4 más potente de Ecuador. Renta tu Jeep Wrangler hoy.">
-    <meta property="og:image"
-        content="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1000&q=80">
-    <meta property="og:url" content="https://alquilerautosuio.com">
+    <title>Jeep Rental Ecuador | Catálogo 4x4 y Blindados</title>
+    <meta name="description" content="Renta de Jeeps, Blindados y Flota Corporativa en Ecuador.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,17 +14,15 @@
 
     <header>
         <nav class="navbar">
-            <a href="index.html" class="logo">Jeep<span>Rental</span>EC</a>
-
+            <a href="#" class="logo">Jeep<span>Rentals</span>EC</a>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
-
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#flota">Flota 4x4</a></li>
-                <li><a href="experiencias.html">Experiencias</a></li>
-                <li><a href="#contacto" class="btn-nav">Reservar <i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="#flota">Catálogo</a></li>
+                <li><a href="/experiencias.html">Experiencias</a></li>
+                <li><a href="#contacto" class="btn-nav">Contacto <i class="fab fa-whatsapp"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -43,113 +30,218 @@
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Domina los caminos del Ecuador</h1>
-            <p>Especialistas en alquiler de Jeep Wrangler & 4x4 de alta gama.</p>
+            <h1>Ecuador 4x4 Experience</h1>
+            <p>Renta de Vehículos Blindados, Corporativos y de Aventura.</p>
 
             <form class="booking-form">
                 <div class="input-group">
-                    <label for="car-select">ELIGE TU BESTIA 4x4</label>
-                    <select id="car-select">
-                        <option value="Jeep Wrangler 2 Puertas">Jeep Wrangler Sport (2 Puertas)</option>
-                        <option value="Jeep Wrangler Unlimited">Jeep Wrangler Unlimited (4 Puertas)</option>
-                        <option value="Jeep Gladiator">Jeep Gladiator (Pick-up)</option>
-                        <option value="Ford Bronco">Ford Bronco 4x4</option>
+                    <label>Vehículo de Interés</label>
+                    <select id="hero-car-select">
+                        <option value="Consulta General">No estoy seguro aún</option>
+                        <option value="Jeep Wrangler Rubicon">Jeep Wrangler Rubicon</option>
+                        <option value="Blindado VIP">Blindado VIP</option>
+                        <option value="Flota Corporativa">Flota Corporativa (Camiones)</option>
                     </select>
                 </div>
+                <div class="input-group">
+                    <label>Fecha Inicio</label>
+                    <input type="date" id="start-date" required>
+                </div>
+                <div class="input-group">
+                    <label>Fecha Fin</label>
+                    <input type="date" id="end-date" required>
+                </div>
                 <button type="submit" class="btn-primary">
-                    COTIZAR AVENTURA <i class="fas fa-chevron-right"></i>
+                    COTIZAR AHORA <i class="fas fa-chevron-right"></i>
                 </button>
             </form>
         </div>
     </section>
 
     <section id="flota" class="section">
-        <h2 class="section-title">Nuestra Flota Off-Road</h2>
+        <h2 class="section-title">Nuestra Flota</h2>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Ver Todo</button>
+            <button class="filter-btn" data-filter="jeep">Jeep 4x4</button>
+            <button class="filter-btn" data-filter="blindado">Blindados</button>
+            <button class="filter-btn" data-filter="corporativo">Corporativo</button>
+            <button class="filter-btn" data-filter="ejecutivo">Ejecutivo</button>
+        </div>
+
         <div class="fleet-grid">
-            <div class="car-card">
+
+            <div class="car-card" data-category="jeep">
+                <div class="promo-badge">PROMO 5+2 GRATIS</div>
                 <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1571553027370-137b0183b777?auto=format&fit=crop&w=600&q=80"
-                        alt="Alquiler Jeep Wrangler Rojo Ecuador" loading="lazy">
+                    <img src="assets/img/JEEP09.jpg" alt="Jeep Wrangler Rubicon" loading="lazy">
                 </div>
                 <div class="car-details">
+                    <span class="category-badge jeep">RUBICON 5P</span>
+                    <h3>Jeep Wrangler Rubicon</h3>
+                    <p class="price">$195 <span class="period">/ día</span></p>
+                    <ul class="features">
+                        <li><i class="fas fa-cogs"></i> 3.6 VVTI Auto</li>
+                        <li><i class="fas fa-mountain"></i> 4x4 Full</li>
+                    </ul>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Wrangler Rubicon 5P">Reservar</a>
+                </div>
+            </div>
+
+            <div class="car-card" data-category="jeep">
+                <div class="promo-badge">PROMO 5+2 GRATIS</div>
+                <div class="car-image">
+                    <img src="assets/img/jeep08.jpg" alt="Jeep Wrangler 3P" loading="lazy">
+                </div>
+                <div class="car-details">
+                    <span class="category-badge jeep">SPORT 3P</span>
                     <h3>Jeep Wrangler Sport</h3>
-                    <p class="price">Consúltenos</p>
+                    <p class="price">$175 <span class="period">/ día</span></p>
                     <ul class="features">
                         <li><i class="fas fa-door-open"></i> 2 Puertas</li>
-                        <li><i class="fas fa-mountain"></i> 4x4 Real</li>
-                        <li><i class="fas fa-cogs"></i> Automático</li>
+                        <li><i class="fas fa-bolt"></i> Automático</li>
                     </ul>
-                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Wrangler 2 Puertas">Cotizar este
-                        Jeep</a>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Wrangler 3P">Reservar</a>
                 </div>
             </div>
 
-            <div class="car-card">
+            <div class="car-card" data-category="blindado">
+                <div class="promo-badge vip">SEGURIDAD MÁXIMA</div>
                 <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1628277613967-6ab58cf56736?auto=format&fit=crop&w=600&q=80"
-                        alt="Renta Jeep Wrangler Unlimited 4 puertas" loading="lazy">
+                    <img src="assets/img/JEEP10.jpg" alt="Mercedes Benz Blindada" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <h3>Wrangler Unlimited</h3>
-                    <p class="price">Consúltenos</p>
+                    <span class="category-badge vip">NIVEL 3 PLUS</span>
+                    <h3>Mercedes Benz GLE</h3>
+                    <p class="price">$400 <span class="period">/ día</span></p>
                     <ul class="features">
-                        <li><i class="fas fa-users"></i> 5 Pasajeros</li>
-                        <li><i class="fas fa-suitcase"></i> Espacioso</li>
-                        <li><i class="fas fa-lock"></i> Techo Duro</li>
+                        <li><i class="fas fa-shield-alt"></i> Blindado III+</li>
+                        <li><i class="fas fa-star"></i> Lujo Total</li>
                     </ul>
-                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Wrangler Unlimited">Cotizar este
-                        Jeep</a>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Mercedes Benz Blindada">Cotizar VIP</a>
                 </div>
             </div>
 
-            <div class="car-card">
+            <div class="car-card" data-category="corporativo">
+                <div class="promo-badge corporate">PLAN ANUAL</div>
                 <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1612803273180-2a865f1712d0?auto=format&fit=crop&w=600&q=80"
-                        alt="Alquiler Jeep Gladiator Ecuador" loading="lazy">
+                    <img src="assets/img/camion_corporativo.jpg" alt="Camión Hino" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <h3>Jeep Gladiator</h3>
-                    <p class="price">Consúltenos</p>
+                    <span class="category-badge corp">CARGA 4 TON</span>
+                    <h3>Hino Dutro City</h3>
+                    <p class="price">$1.300 <span class="period">/ mes</span></p>
                     <ul class="features">
-                        <li><i class="fas fa-truck-pickup"></i> Platón de carga</li>
-                        <li><i class="fas fa-tachometer-alt"></i> V6 Potencia</li>
-                        <li><i class="fas fa-map-marked-alt"></i> GPS</li>
+                        <li><i class="fas fa-truck-loading"></i> Carga Pesada</li>
+                        <li><i class="fas fa-file-contract"></i> Contrato 1 Año</li>
                     </ul>
-                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Gladiator">Cotizar este Jeep</a>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Camión Hino Dutro">Cotizar Flota</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="seo-text">
-        <div class="container-seo">
-            <h2>¿Por qué elegir Jeep Rental Ecuador?</h2>
-            <p>
-                Olvídate de los autos convencionales. Ecuador es un país de montañas, selvas y playas vírgenes que
-                merecen ser exploradas en un verdadero 4x4.
-                En <strong>Jeep Rental Ecuador</strong>, ofrecemos vehículos icónicos como el Wrangler y Gladiator,
-                garantizando seguridad, potencia y estilo
-                para tu viaje de aventura. Atención personalizada en Quito y Aeropuerto Tababela.
-            </p>
+            <div class="car-card" data-category="corporativo">
+                <div class="promo-badge corporate">PARA MIPES</div>
+                <div class="car-image">
+                    <img src="assets/img/JEEP04.jpg" alt="Chevrolet Dmax" loading="lazy">
+                </div>
+                <div class="car-details">
+                    <span class="category-badge corp">TRABAJO</span>
+                    <h3>Chevrolet D-Max</h3>
+                    <p class="price">$1.300 <span class="period">/ mes</span></p>
+                    <ul class="features">
+                        <li><i class="fas fa-gas-pump"></i> Diésel 4x4</li>
+                        <li><i class="fas fa-tools"></i> Mantenimiento Inc.</li>
+                    </ul>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Chevrolet Dmax Flota">Cotizar Flota</a>
+                </div>
+            </div>
+
+            <div class="car-card" data-category="turismo">
+                <div class="promo-badge">FAMILIAR</div>
+                <div class="car-image">
+                    <img src="assets/img/turismo.jpg" alt="Kia Carnival" loading="lazy">
+                </div>
+                <div class="car-details">
+                    <span class="category-badge tour">11 PASAJEROS</span>
+                    <h3>Kia Carnival</h3>
+                    <p class="price">$110 <span class="period">/ día</span></p>
+                    <ul class="features">
+                        <li><i class="fas fa-users"></i> Gran Capacidad</li>
+                        <li><i class="fas fa-suitcase"></i> Confort</li>
+                    </ul>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Kia Carnival 11 Pasajeros">Reservar
+                        Van</a>
+                </div>
+            </div>
+
+            <div class="car-card" data-category="ejecutivo">
+                <div class="promo-badge">5+2 GRATIS</div>
+                <div class="car-image">
+                    <img src="assets/img/JEEP07.jpg" alt="Jeep SUV" loading="lazy">
+                </div>
+                <div class="car-details">
+                    <span class="category-badge exec">ALTA GAMA</span>
+                    <h3>Jeep Compass / Cherokee</h3>
+                    <p class="price">$80 <span class="period">/ día</span></p>
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> Automático</li>
+                        <li><i class="fas fa-city"></i> Urbano</li>
+                    </ul>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Alta Gama SUV">Reservar</a>
+                </div>
+            </div>
+
+            <div class="car-card" data-category="ejecutivo">
+                <div class="promo-badge">ECONÓMICO</div>
+                <div class="car-image">
+                    <img src="assets/img/jeep03.jpg" alt="Suzuki SZ" loading="lazy">
+                </div>
+                <div class="car-details">
+                    <span class="category-badge exec">SUV COMPACTO</span>
+                    <h3>Suzuki SZ - Nex</h3>
+                    <p class="price">$65 <span class="period">/ día</span></p>
+                    <ul class="features">
+                        <li><i class="fas fa-leaf"></i> Motor 2.4</li>
+                        <li><i class="fas fa-check"></i> Automático</li>
+                    </ul>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Suzuki SZ">Reservar</a>
+                </div>
+            </div>
+
+            <div class="car-card" data-category="ejecutivo">
+                <div class="promo-badge">MANUAL</div>
+                <div class="car-image">
+                    <img src="assets/img/JEEP02.jpg" alt="Kia Celtos" loading="lazy">
+                </div>
+                <div class="car-details">
+                    <span class="category-badge exec">MODERNO</span>
+                    <h3>Kia Celtos</h3>
+                    <p class="price">$65 <span class="period">/ día</span></p>
+                    <ul class="features">
+                        <li><i class="fas fa-cogs"></i> Manual</li>
+                        <li><i class="fas fa-mobile-alt"></i> Android Auto</li>
+                    </ul>
+                    <a href="#" class="btn-secondary whatsapp-trigger" data-car="Kia Celtos Manual">Reservar</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <footer id="contacto">
         <div class="footer-content">
-            <p style="font-size: 1.2rem; font-weight: bold; color: white;">JEEP RENTAL ECUADOR</p>
-            <p>Quito, Ecuador</p>
+            <h3>JEEP RENTALS ECUADOR</h3>
+            <p>Quito - Amazonas 121 / Indaza</p>
             <div class="socials">
-                <a href="https://www.facebook.com/people/Jeep-Rental-Ecuador/61560968241236/" target="_blank"><i
-                        class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" id="fb-link"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2024 Jeep Rental Ecuador. Todos los derechos
-                reservados.</p>
+            <p class="copyright">&copy; 2025 Jeep Rentals Ecuador. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/593999999999" class="whatsapp-float" target="_blank" aria-label="Chatear">
+    <a href="#" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 

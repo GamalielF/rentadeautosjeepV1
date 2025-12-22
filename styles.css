@@ -1,46 +1,30 @@
-/* --- VARIABLES Y RESET (PALETA JEEP ADVENTURE) --- */
+/* --- VARIABLES --- */
 :root {
     --primary: #4b5320;
-    /* Verde Militar / Army Green */
-    --primary-dark: #353b17;
+    /* Verde Militar */
     --accent: #ffba00;
-    /* Amarillo Jeep / Señalización */
+    /* Amarillo */
     --dark: #1a1a1a;
-    /* Negro casi puro para contraste */
     --light: #f4f4f4;
-    --text-body: #333;
+    --red: #e74c3c;
+    --text: #333;
 }
 
+/* --- RESET & BASE --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-}
-
-body {
-    /* Ruta a la imagen dentro de la carpeta que creamos */
-    background-image: url('assets/img/fondo-jeep.jpg.png');
-
-    /* Asegura que la imagen cubra todo el fondo sin deformarse */
-    background-size: cover;
-
-    /* Centra la imagen */
-    background-position: center center;
-
-    /* Evita que la imagen se repita como mosaico */
-    background-repeat: no-repeat;
-
-    /* Fija el fondo para que no se mueva al hacer scroll (efecto elegante) */
-    background-attachment: fixed;
-
-    /* Asegura que ocupe toda la altura de la pantalla */
-    min-height: 100vh;
-    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    background: var(--light);
+    color: var(--text);
 }
 
 /* --- NAVBAR --- */
@@ -50,84 +34,94 @@ html {
     align-items: center;
     padding: 1rem 5%;
     background: var(--dark);
-    /* Barra oscura para look premium/rudo */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
+
 .logo {
-    font-size: 1.6rem;
-    font-weight: 900;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    /* PROPIEDADES NUEVAS PARA QUE FUNCIONE COMO LINK */
     text-decoration: none;
-    /* Quita el subrayado */
-    cursor: pointer;
-    /* Muestra la manito al pasar el mouse */
-    display: inline-block;
-    /* Asegura que respete márgenes */
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-/* Opcional: Pequeño efecto al pasar el mouse sobre el logo */
-.logo:hover {
-    opacity: 0.9;
+.logo span {
+    color: var(--accent);
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 25px;
-    align-items: center;
+    list-style: none;
+    gap: 20px;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: white;
-    font-weight: 500;
-    transition: 0.3s;
+    text-decoration: none;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
+    transition: 0.3s;
 }
 
 .btn-nav {
     background: var(--accent);
     color: var(--dark) !important;
-    padding: 0.6rem 1.2rem;
+    padding: 8px 15px;
     border-radius: 4px;
-    font-weight: 800 !important;
 }
 
-.btn-nav:hover {
-    background: #e5a700;
+/* Animación Neón Corregida */
+@keyframes neonPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px currentColor;
+    }
+
+    50% {
+        text-shadow: 0 0 20px currentColor;
+    }
 }
 
+.nav-links li a:hover {
+    animation: neonPulse 1.5s infinite;
+}
+
+.nav-links li:nth-child(1) a:hover {
+    color: #ff00ff;
+}
+
+.nav-links li:nth-child(2) a:hover {
+    color: #00eaff;
+}
+
+.nav-links li:nth-child(3) a:hover {
+    color: #39ff14;
+}
+
+/* Menú Móvil */
 .menu-toggle {
     display: none;
+    color: var(--accent);
     font-size: 1.8rem;
     cursor: pointer;
-    color: var(--accent);
 }
 
-/* --- HERO SECTION (AVENTURA) --- */
+/* --- HERO SECTION --- */
 .hero {
-    height: 95vh;
-    /* Imagen de fondo de un Jeep en terreno difícil */
-    background-image: url('assets/img/fondo-jeep.jpg.png') no-repeat center center/cover;
-    position: relative;
+    height: 100vh;
+    background: url('assets/img/fondo-jeep.jpg.png') center/cover no-repeat;
+    /* Ajusta nombre si es necesario */
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     text-align: center;
-    padding: 0 20px;
+    color: white;
 }
 
 .hero-overlay {
@@ -136,188 +130,256 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
-    max-width: 900px;
-    color: white;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 10px black;
 }
 
-.hero-content p {
-    font-size: 1.4rem;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-}
-
-/* --- FORMULARIO OPTIMIZADO --- */
+/* Formulario Hero */
 .booking-form {
     background: rgba(255, 255, 255, 0.95);
-    /* Semi-transparente */
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     display: flex;
-    gap: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    gap: 10px;
+    margin-top: 30px;
     align-items: flex-end;
-    border-bottom: 4px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid var(--accent);
 }
 
 .input-group {
-    flex-grow: 1;
+    flex: 1;
     text-align: left;
 }
 
 .input-group label {
     display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
     color: var(--dark);
-    font-weight: 800;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
 }
 
+.input-group input,
 .input-group select {
     width: 100%;
-    padding: 14px;
-    border: 2px solid #ddd;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1rem;
-    background: #fff;
-    font-weight: 600;
 }
 
 .btn-primary {
     background: var(--primary);
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 4px;
-    font-weight: 800;
-    font-size: 1rem;
+    padding: 12px 20px;
+    font-weight: bold;
     cursor: pointer;
+    border-radius: 4px;
     transition: 0.3s;
-    text-transform: uppercase;
-    white-space: nowrap;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
+    background: #353b17;
+    transform: translateY(-3px);
 }
 
-/* --- SECCIONES GENERALES --- */
+/* --- CATALOGO / FLOTA --- */
 .section {
-    padding: 5rem 5%;
+    padding: 80px 5%;
 }
 
 .section-title {
-    color: #ffffff;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 15px 30px;
-    
-        /* --- CAMBIOS PARA CENTRAR --- */
-        display: block;
-        /* Cambiamos de inline-block a block */
-        width: fit-content;
-        /* El ancho se ajusta exactamente al texto */
-        margin: 20px auto;
-        /* 'auto' a los lados centra el elemento horizontalmente */
-        /* --------------------------- */
-    
-        border-radius: 8px;
-        border: 2px solid #f39c12;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        backdrop-filter: blur(5px);
-    
-        /* Opcional: Para asegurar que el texto dentro de la caja también esté centrado */
-        text-align: center;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: var(--dark);
 }
 
-/* --- FLOTA GRID --- */
+/* Filtros */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: 2px solid var(--accent);
+    background: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+/* Grid */
 .fleet-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
+/* Tarjeta Vehículo */
 .car-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    border: 1px solid #eee;
 }
 
 .car-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
+    transform: translateY(-10px);
+}
+
+/* Animación de Filtrado */
+.car-card.hide {
+    display: none;
+}
+
+.car-card.show {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .car-image img {
     width: 100%;
-    height: 240px;
+    height: 220px;
     object-fit: cover;
 }
 
 .car-details {
-    padding: 1.5rem;
+    padding: 20px;
     text-align: center;
 }
 
 .car-details h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    font-weight: 800;
-    color: var(--dark);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Badges y Precio */
+.promo-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--red);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-bottom-right-radius: 10px;
+    z-index: 10;
+}
+
+.promo-badge.corporate {
+    background: #2980b9;
+}
+
+.promo-badge.vip {
+    background: #000;
+    color: gold;
+    border: 1px solid gold;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.jeep {
+    background: var(--primary);
+}
+
+.vip {
+    background: black;
+    color: gold;
+}
+
+.corp {
+    background: #2980b9;
+}
+
+.tour {
+    background: #e67e22;
+}
+
+.exec {
+    background: #7f8c8d;
 }
 
 .price {
     color: var(--primary);
     font-size: 1.5rem;
     font-weight: 900;
-    margin-bottom: 15px;
+    margin: 10px 0;
+}
+
+.price .period {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: normal;
 }
 
 .features {
     list-style: none;
     display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
     color: #555;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.features i {
-    color: var(--accent);
-    margin-right: 5px;
 }
 
 .btn-secondary {
-    display: inline-block;
+    display: block;
     background: var(--dark);
     color: white;
-    padding: 12px 0;
-    width: 100%;
+    padding: 10px;
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: 700;
+    border-radius: 5px;
+    font-weight: bold;
     transition: 0.3s;
-    text-transform: uppercase;
 }
 
 .btn-secondary:hover {
@@ -325,41 +387,22 @@ html {
     color: var(--dark);
 }
 
-/* --- SEO TEXT & FOOTER --- */
-.seo-text {
-    background: #e3e8e0;
-    padding: 60px 5%;
-    color: var(--dark);
-    text-align: center;
-    border-top: 5px solid var(--primary);
-}
-
-.container-seo {
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
-.container-seo h2 {
-    margin-bottom: 20px;
-    font-weight: 900;
-}
-
+/* --- FOOTER & WHATSAPP --- */
 footer {
     background: var(--dark);
-    color: #888;
+    color: #aaa;
     text-align: center;
     padding: 40px 20px;
 }
 
 .socials {
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .socials a {
     color: white;
-    margin: 0 15px;
     font-size: 1.5rem;
+    margin: 0 10px;
     transition: 0.3s;
 }
 
@@ -367,32 +410,24 @@ footer {
     color: var(--accent);
 }
 
-/* --- WHATSAPP FLOTANTE --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     background: #25D366;
     color: white;
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 35px;
-    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
-    z-index: 999;
-    text-decoration: none;
-    transition: 0.3s;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background: #20b85a;
-}
-
-/* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -400,186 +435,27 @@ footer {
 
     .nav-links {
         position: absolute;
-        top: 70px;
+        top: 60px;
         right: 0;
-        height: calc(100vh - 70px);
-        width: 80%;
-        background-color: var(--dark);
-        /* Menú oscuro en móvil */
+        width: 100%;
+        background: var(--dark);
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        padding-top: 60px;
-        transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        padding: 20px 0;
+        transform: translateY(-150%);
+        transition: 0.4s ease;
+        z-index: 900;
     }
 
     .nav-links.active {
-        transform: translateX(0%);
-    }
-
-    .nav-links li {
-        margin: 25px 0;
-        font-size: 1.1rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem;
-        line-height: 1.2;
+        transform: translateY(0);
     }
 
     .booking-form {
         flex-direction: column;
-        width: 100%;
-        padding: 20px;
     }
 
-    .btn-primary {
-        width: 100%;
-        margin-top: 15px;
+    .hero h1 {
+        font-size: 2rem;
     }
-
-    .input-group label {
-        margin-top: 10px;
-    }
-}
-/* --- ESTILOS DE PÁGINA EXPERIENCIAS --- */
-
-.experience-card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid var(--accent);
-    /* Borde amarillo lateral */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-/* --- INICIO EFECTO NEÓN MULTICOLOR --- */
-
-/* 1. Configuración base para la transición suave */
-/* Ajusta el selector 'nav ul li a' si es necesario */
-nav ul li a {
-    transition: all 0.4s ease-in-out;
-    /* Opcional: un pequeño padding hace que el resplandor se vea mejor */
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-
-/* 2. Definir colores por elemento (usando nth-child) */
-
-/* Primer elemento: Neón ROSA/MAGENTA */
-nav ul li:nth-child(1) a:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff, 0 0 30px #ff00ff, 0 0 60px #ff00ff;
-}
-
-/* Segundo elemento: Neón AZUL CYBER */
-nav ul li:nth-child(2) a:hover {
-    color: #00eaff;
-    text-shadow: 0 0 5px #fff, 0 0 15px #00eaff, 0 0 30px #00eaff, 0 0 60px #00eaff;
-}
-
-/* Tercer elemento: Neón VERDE LIMA */
-nav ul li:nth-child(3) a:hover {
-    color: #39ff14;
-    text-shadow: 0 0 5px #fff, 0 0 15px #39ff14, 0 0 30px #39ff14, 0 0 60px #39ff14;
-}
-
-/* Cuarto elemento: Neón AMARILLO/NARANJA */
-nav ul li:nth-child(4) a:hover {
-    color: #ffea00;
-    text-shadow: 0 0 5px #fff, 0 0 15px #ffea00, 0 0 30px #ffea00, 0 0 60px #ffea00;
-}
-
-/* Quinto elemento (si existe): Neón ROJO */
-nav ul li:nth-child(5) a:hover {
-    color: #ff0000;
-    text-shadow: 0 0 5px #fff, 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 60px #ff0000;
-}
-
-/* --- FIN EFECTO NEÓN MULTICOLOR --- */
-
-/* Definición de la animación de parpadeo/pulsación */
-@keyframes neonPulsar {
-
-    0%,
-    100% {
-        text-shadow:
-            0 0 5px #fff,
-            0 0 10px #00fff2,
-            0 0 20px #00fff2;
-    }
-
-    50% {
-        text-shadow:
-            0 0 10px #fff,
-            0 0 20px #00fff2,
-            0 0 40px #00fff2,
-            0 0 80px #00fff2;
-    }
-}
-
-    
-
-/* Aplicar la animación al hover */
-nav ul li a:hover {
-    color: #00fff2;
-    /* Ejecuta la animación 'neonPulsar' infinitamente en 1.5 segundos */
-    animation: neonPulsar 1.5s infinite alternate;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.user-profile img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--accent);
-}
-
-.user-profile h3 {
-    font-size: 1.1rem;
-    color: var(--dark);
-    margin-bottom: 2px;
-}
-
-.location {
-    font-size: 0.85rem;
-    color: var(--primary);
-    /* Verde militar */
-    font-weight: 600;
-}
-
-.rating {
-    color: var(--accent);
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-}
-
-.testimonio {
-    font-style: italic;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.trip-tag {
-    background: #f0f0f0;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: var(--dark);
-    align-self: flex-start;
-    text-transform: uppercase;
 }
