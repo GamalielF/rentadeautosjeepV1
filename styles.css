@@ -683,7 +683,7 @@ footer {
     }
 
     .booking-form {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .category-wrapper {

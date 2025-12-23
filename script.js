@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- 5. INTEGRACIÓN WHATSAPP DINÁMICA ---
-  const phoneNumber = "593999999999"; // ⚠️ CAMBIA ESTO POR TU NÚMERO REAL
+  const phoneNumber = "+593968727459"; // ⚠️ CAMBIA ESTO POR TU NÚMERO REAL
 
   // Para botones de reserva en tarjetas
   document.querySelectorAll(".whatsapp-trigger").forEach((btn) => {
