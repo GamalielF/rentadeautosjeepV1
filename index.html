@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeep Rental Ecuador | Catálogo 4x4 y Blindados</title>
-    <meta name="description" content="Renta de Jeeps, Blindados y Flota Corporativa en Ecuador.">
+    <meta name="description"
+        content="Renta de Jeeps Wrangler, Vehículos Blindados y Flota Corporativa en Quito, Ecuador.">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,40 +18,39 @@
     <header>
         <nav class="navbar">
             <a href="#" class="logo">Jeep<span>Rentals</span>EC</a>
-            <div class="menu-toggle" id="mobile-menu">
+            <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#flota">Catálogo</a></li>
-                <li><a href="/experiencias.html">Experiencias</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
                 <li><a href="#contacto" class="btn-nav">Contacto <i class="fab fa-whatsapp"></i></a></li>
             </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Ecuador 4x4 Experience</h1>
-            <p>Renta de Vehículos Blindados, Corporativos y de Aventura.</p>
+        <div class="hero-content fade-in">
+            <h1>Logística en Transporte & Alquiler 4x4</h1>
+            <p>Especialistas en Blindados, Flota Corporativa y Turismo de Aventura.</p>
 
             <form class="booking-form">
                 <div class="input-group">
-                    <label>Vehículo de Interés</label>
+                    <label for="hero-car-select">Vehículo de Interés</label>
                     <select id="hero-car-select">
-                        <option value="Consulta General">No estoy seguro aún</option>
+                        <option value="Consulta General">Seleccionar opción...</option>
                         <option value="Jeep Wrangler Rubicon">Jeep Wrangler Rubicon</option>
-                        <option value="Blindado VIP">Blindado VIP</option>
-                        <option value="Flota Corporativa">Flota Corporativa (Camiones)</option>
+                        <option value="Blindado VIP">Blindado VIP (Nivel III+)</option>
+                        <option value="Flota Corporativa">Flota Corporativa</option>
                     </select>
                 </div>
                 <div class="input-group">
-                    <label>Fecha Inicio</label>
+                    <label for="start-date">Fecha Inicio</label>
                     <input type="date" id="start-date" required>
                 </div>
                 <div class="input-group">
-                    <label>Fecha Fin</label>
+                    <label for="end-date">Fecha Fin</label>
                     <input type="date" id="end-date" required>
                 </div>
                 <button type="submit" class="btn-primary">
@@ -59,145 +61,160 @@
     </section>
 
     <section id="flota" class="section">
-        <h2 class="section-title">Nuestra Flota</h2>
+        <h2 class="section-title fade-in">Nuestra Flota</h2>
 
-        <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">Ver Todo</button>
-            <button class="filter-btn" data-filter="jeep">Jeep 4x4</button>
-            <button class="filter-btn" data-filter="blindado">Blindados</button>
-            <button class="filter-btn" data-filter="corporativo">Corporativo</button>
-            <button class="filter-btn" data-filter="ejecutivo">Ejecutivo</button>
+        <div class="category-wrapper fade-in">
+            <nav class="category-bar">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> Ver Todo
+                </button>
+                <button class="filter-btn" data-filter="jeep">
+                    <i class="fas fa-mountain"></i> Jeeps 4x4
+                </button>
+                <button class="filter-btn" data-filter="blindado">
+                    <i class="fas fa-shield-alt"></i> Blindados
+                </button>
+                <button class="filter-btn" data-filter="corporativo">
+                    <i class="fas fa-truck"></i> Flota / Trabajo
+                </button>
+                <button class="filter-btn" data-filter="ejecutivo">
+                    <i class="fas fa-briefcase"></i> Ejecutivo
+                </button>
+                <button class="filter-btn" data-filter="turismo">
+                    <i class="fas fa-users"></i> Vans / Turismo
+                </button>
+            </nav>
         </div>
 
         <div class="fleet-grid">
 
-            <div class="car-card" data-category="jeep">
+            <div class="car-card fade-in" data-category="jeep">
                 <div class="promo-badge">PROMO 5+2 GRATIS</div>
                 <div class="car-image">
                     <img src="assets/img/JEEP09.jpg" alt="Jeep Wrangler Rubicon" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge jeep">RUBICON 5P</span>
-                    <h3>Jeep Wrangler Rubicon</h3>
+                    <span class="category-badge jeep"><i class="fas fa-mountain"></i> JEEP 4x4</span>
+                    <h3>Wrangler Rubicon 5P</h3>
                     <p class="price">$195 <span class="period">/ día</span></p>
                     <ul class="features">
                         <li><i class="fas fa-cogs"></i> 3.6 VVTI Auto</li>
-                        <li><i class="fas fa-mountain"></i> 4x4 Full</li>
+                        <li><i class="fas fa-road"></i> Todo Terreno</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Wrangler Rubicon 5P">Reservar</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="jeep">
-                <div class="promo-badge">PROMO 5+2 GRATIS</div>
+            <div class="car-card fade-in" data-category="jeep">
+                <div class="promo-badge">AVENTURA</div>
                 <div class="car-image">
                     <img src="assets/img/jeep08.jpg" alt="Jeep Wrangler 3P" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge jeep">SPORT 3P</span>
-                    <h3>Jeep Wrangler Sport</h3>
+                    <span class="category-badge jeep"><i class="fas fa-mountain"></i> JEEP 4x4</span>
+                    <h3>Wrangler Sport 3P</h3>
                     <p class="price">$175 <span class="period">/ día</span></p>
                     <ul class="features">
                         <li><i class="fas fa-door-open"></i> 2 Puertas</li>
-                        <li><i class="fas fa-bolt"></i> Automático</li>
+                        <li><i class="fas fa-bolt"></i> Descapotable</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Wrangler 3P">Reservar</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="blindado">
+            <div class="car-card fade-in" data-category="blindado">
                 <div class="promo-badge vip">SEGURIDAD MÁXIMA</div>
                 <div class="car-image">
                     <img src="assets/img/JEEP10.jpg" alt="Mercedes Benz Blindada" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge vip">NIVEL 3 PLUS</span>
+                    <span class="category-badge vip"><i class="fas fa-shield-alt"></i> BLINDADO VIP</span>
                     <h3>Mercedes Benz GLE</h3>
                     <p class="price">$400 <span class="period">/ día</span></p>
                     <ul class="features">
-                        <li><i class="fas fa-shield-alt"></i> Blindado III+</li>
-                        <li><i class="fas fa-star"></i> Lujo Total</li>
+                        <li><i class="fas fa-shield-alt"></i> Nivel III+</li>
+                        <li><i class="fas fa-star"></i> Chofer Incl.</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Mercedes Benz Blindada">Cotizar VIP</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="corporativo">
+            <div class="car-card fade-in" data-category="corporativo">
                 <div class="promo-badge corporate">PLAN ANUAL</div>
                 <div class="car-image">
                     <img src="assets/img/camion_corporativo.jpg" alt="Camión Hino" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge corp">CARGA 4 TON</span>
+                    <span class="category-badge corp"><i class="fas fa-truck"></i> CORPORATIVO</span>
                     <h3>Hino Dutro City</h3>
                     <p class="price">$1.300 <span class="period">/ mes</span></p>
                     <ul class="features">
-                        <li><i class="fas fa-truck-loading"></i> Carga Pesada</li>
-                        <li><i class="fas fa-file-contract"></i> Contrato 1 Año</li>
+                        <li><i class="fas fa-weight-hanging"></i> Carga 4 Ton</li>
+                        <li><i class="fas fa-file-contract"></i> Contrato</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Camión Hino Dutro">Cotizar Flota</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="corporativo">
-                <div class="promo-badge corporate">PARA MIPES</div>
+            <div class="car-card fade-in" data-category="corporativo">
+                <div class="promo-badge corporate">TRABAJO</div>
                 <div class="car-image">
                     <img src="assets/img/JEEP04.jpg" alt="Chevrolet Dmax" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge corp">TRABAJO</span>
+                    <span class="category-badge corp"><i class="fas fa-hard-hat"></i> CORPORATIVO</span>
                     <h3>Chevrolet D-Max</h3>
                     <p class="price">$1.300 <span class="period">/ mes</span></p>
                     <ul class="features">
                         <li><i class="fas fa-gas-pump"></i> Diésel 4x4</li>
-                        <li><i class="fas fa-tools"></i> Mantenimiento Inc.</li>
+                        <li><i class="fas fa-tools"></i> Mantenimiento</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Chevrolet Dmax Flota">Cotizar Flota</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="turismo">
+            <div class="car-card fade-in" data-category="turismo">
                 <div class="promo-badge">FAMILIAR</div>
                 <div class="car-image">
                     <img src="assets/img/turismo.jpg" alt="Kia Carnival" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge tour">11 PASAJEROS</span>
+                    <span class="category-badge tour"><i class="fas fa-users"></i> VAN TURISMO</span>
                     <h3>Kia Carnival</h3>
                     <p class="price">$110 <span class="period">/ día</span></p>
                     <ul class="features">
-                        <li><i class="fas fa-users"></i> Gran Capacidad</li>
-                        <li><i class="fas fa-suitcase"></i> Confort</li>
+                        <li><i class="fas fa-chair"></i> 11 Pasajeros</li>
+                        <li><i class="fas fa-suitcase"></i> Maletero</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Kia Carnival 11 Pasajeros">Reservar
                         Van</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="ejecutivo">
-                <div class="promo-badge">5+2 GRATIS</div>
+            <div class="car-card fade-in" data-category="ejecutivo">
+                <div class="promo-badge">CONFORT</div>
                 <div class="car-image">
                     <img src="assets/img/JEEP07.jpg" alt="Jeep SUV" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge exec">ALTA GAMA</span>
-                    <h3>Jeep Compass / Cherokee</h3>
+                    <span class="category-badge exec"><i class="fas fa-briefcase"></i> SUV EJECUTIVO</span>
+                    <h3>Jeep Compass</h3>
                     <p class="price">$80 <span class="period">/ día</span></p>
                     <ul class="features">
                         <li><i class="fas fa-check-circle"></i> Automático</li>
-                        <li><i class="fas fa-city"></i> Urbano</li>
+                        <li><i class="fas fa-city"></i> Cuero</li>
                     </ul>
                     <a href="#" class="btn-secondary whatsapp-trigger" data-car="Jeep Alta Gama SUV">Reservar</a>
                 </div>
             </div>
 
-            <div class="car-card" data-category="ejecutivo">
+            <div class="car-card fade-in" data-category="ejecutivo">
                 <div class="promo-badge">ECONÓMICO</div>
                 <div class="car-image">
                     <img src="assets/img/jeep03.jpg" alt="Suzuki SZ" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge exec">SUV COMPACTO</span>
+                    <span class="category-badge exec"><i class="fas fa-car-side"></i> SUV COMPACTO</span>
                     <h3>Suzuki SZ - Nex</h3>
                     <p class="price">$65 <span class="period">/ día</span></p>
                     <ul class="features">
@@ -208,13 +225,13 @@
                 </div>
             </div>
 
-            <div class="car-card" data-category="ejecutivo">
+            <div class="car-card fade-in" data-category="ejecutivo">
                 <div class="promo-badge">MANUAL</div>
                 <div class="car-image">
                     <img src="assets/img/JEEP02.jpg" alt="Kia Celtos" loading="lazy">
                 </div>
                 <div class="car-details">
-                    <span class="category-badge exec">MODERNO</span>
+                    <span class="category-badge exec"><i class="fas fa-car-side"></i> SUV MODERNO</span>
                     <h3>Kia Celtos</h3>
                     <p class="price">$65 <span class="period">/ día</span></p>
                     <ul class="features">
@@ -228,20 +245,49 @@
         </div>
     </section>
 
+    <section id="ubicacion" class="section location-section">
+        <h2 class="section-title fade-in">Dónde Encontrarnos</h2>
+
+        <div class="location-container fade-in">
+            <div class="location-info">
+                <h3>Visita nuestra Oficina Matriz</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Amazonas 121 y Calle Indaza, Quito, Ecuador.</p>
+                <p>Atención personalizada para retiro de vehículos y gestión de contratos corporativos.</p>
+
+                <div class="app-buttons">
+                    <a href="https://waze.com/ul?ll=-0.180653,-78.467834&navigate=yes" target="_blank"
+                        class="btn-app waze">
+                        <i class="fab fa-waze"></i> Ir con Waze
+                    </a>
+                    <a href="https://goo.gl/maps/tu-enlace-aqui" target="_blank" class="btn-app gmaps">
+                        <i class="fas fa-map-marked-alt"></i> Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7962663907765!2d-78.4877!3d-0.1807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a6000000000%3A0x0!2zAv_Amazonas_121!5e0!3m2!1ses!2sec!4v1625600000000"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
     <footer id="contacto">
         <div class="footer-content">
             <h3>JEEP RENTALS ECUADOR</h3>
             <p>Quito - Amazonas 121 / Indaza</p>
             <div class="socials">
-                <a href="#" target="_blank" id="fb-link"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="copyright">&copy; 2025 Jeep Rentals Ecuador. Todos los derechos reservados.</p>
+            <p class="copyright">© 2025 Jeep Rentals Ecuador. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <a href="#" class="whatsapp-float" target="_blank">
+    <a href="#" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
