@@ -520,3 +520,104 @@ footer {
         align-items: flex-end;
     }
 }
+/* =========================================
+   MEJORA DE BOTONES WAZE Y MAPS
+   ========================================= */
+
+/* Contenedor de los botones */
+.app-buttons {
+    display: flex;
+    gap: 15px;
+    /* Espacio entre botones */
+    margin-top: 25px;
+    flex-wrap: wrap;
+    /* Para que bajen de línea en pantallas muy pequeñas */
+}
+
+/* Estilo Base del Botón */
+.btn-app {
+    flex: 1;
+    /* Ambos botones ocupan el mismo ancho */
+    min-width: 140px;
+    /* Ancho mínimo para que no se aplasten */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    /* Bordes ligeramente redondeados modernos */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    border: none;
+}
+
+.btn-app i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Efecto Hover (al pasar el mouse) */
+.btn-app:hover {
+    transform: translateY(-4px);
+    /* Se eleva */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Sombra más fuerte */
+}
+
+/* Color Específico Waze */
+.btn-app.waze {
+    background: #33ccff;
+    /* Cian oficial de Waze */
+    background: linear-gradient(135deg, #33ccff 0%, #00aadd 100%);
+}
+
+/* Color Específico Google Maps */
+.btn-app.gmaps {
+    background: #4285F4;
+    /* Azul Google */
+    background: linear-gradient(135deg, #4285F4 0%, #2b62c4 100%);
+}
+
+/* Ajuste del Iframe del Mapa para que llene el contenedor */
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    /* Redondea solo el lado derecho */
+    display: block;
+}
+
+/* =========================================
+   AJUSTE RESPONSIVE SOLO PARA ESTA SECCIÓN
+   ========================================= */
+@media (max-width: 768px) {
+    .location-container {
+        flex-direction: column;
+        /* Mapa abajo del texto en móvil */
+    }
+
+    .map-wrapper {
+        min-height: 250px;
+        /* Altura del mapa en celular */
+    }
+
+    .map-wrapper iframe {
+        border-radius: 0 0 20px 20px;
+        /* En móvil redondeamos abajo */
+    }
+
+    .app-buttons {
+        flex-direction: column;
+        /* Botones uno encima del otro en móvil */
+    }
+
+    .btn-app {
+        width: 100%;
+        /* Botón ancho completo */
+    }
+}
